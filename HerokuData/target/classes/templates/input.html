@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+	<head>
+		<title>Heroku Archival - GDPR</title>
+		
+		<!-- <meta charset="utf-8"> -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="Content-Type" content="text/jsp; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+				
+		<link rel="icon" href="#" type="image/png" />		
+		<link rel="stylesheet" type="text/css" href="/css/herokuStyles.css"/>
+		
+		<c:url value="/img/amazonlogo.jpg" var="amazonlogo" />
+		<c:url value="/img/gdpr.jpg" var="gdprlogo" />
+	</head>
+	<body>
+	<div class="topcont">
+	<div class="brandsec">
+		<img src="/img/amazonlogo.jpg" width="85%" alt="Amazon" />
+	</div>
+	<div class="rgtsect">
+		<h1><b>Heroku Archival - GDPR</b></h1>				
+		<img src="/img/gdpr.jpg" width="7%" alt="GDPR"/>
+	</div>
+</div>	
+		<div class="wrapper">
+			<nav>
+			  <ul>
+			    <li><a href="/heroku/home">Home</a></li>
+			    <li><a href="#" class="active">Current Input Details</a></li>
+			    <li><a href="#">Scheduler Information</a></li>
+			    <li><a href=#>Job Information</a></li>      
+			  </ul>
+			</nav>
+			<main>	
+		
+    			<h1><b>Current Input Details Page</b></h1>
+    			 <h2><b>Welcome to Heroku - GDPR Home page</b></h2>
+			    <div>
+					
+<button class="accordion">Category</button>
+<div class="panel">
+ <table border="1">
+         <tr>
+             <th>CategoryId</th>
+    <th>CategoryName</th>
+    <th>Status</th>
+         </tr>
+         <th:block th:each="category : ${allCategories}">
+      <tr>
+         <td th:text="${category.Category_Id}">...</td>
+         <td th:text="${category.Category_Name}">...</td>
+         <td  th:text="${category.Status}">...</td>
+      </tr>
+      
+   </th:block>
+      </table>
+
+</div>
+
+<button class="accordion">Country Code</button>
+<div class="panel">
+  
+  <table border="1">
+         <tr>
+    <th>CountryId</th>
+    <th>Region</th>
+    <th>CountyCode</th>
+    <th>CountryName</th>
+    <th>Status</th>
+  </tr>
+         <th:block th:each="cc : ${allCountries}">
+      <tr>
+         <td th:text="${cc.Country_ID}">...</td>
+         <td th:text="${cc.Region}">...</td>
+         <td  th:text="${cc.Country_Code}">...</td>
+          <td  th:text="${cc.Country_Name}">...</td>
+           <td  th:text="${cc.Status}">...</td>
+      </tr>
+   
+   </th:block>
+      </table>
+</div>
+
+
+<button class="accordion">Anonymization Patten</button>
+<div class="panel">
+  
+   <table border="1">
+         <tr>
+    <th>AnonymizationID</th>
+    <th>AnonymizationName</th>
+    <th>FieldType</th>
+    <th>Description</th>
+    <th>AnonymizationOptions</th>
+	 <th>Anonymization_Pattern</th>
+  </tr>
+         <th:block th:each="ap : ${allAnonymizationPattern}">
+      <tr>
+         <td th:text="${ap.Anonymization_ID}">...</td>
+         <td th:text="${ap.Anonymization_Name}">...</td>
+         <td  th:text="${ap.Field_Type}">...</td>
+          <td  th:text="${ap.Description}">...</td>
+           <td  th:text="${ap.Anonymization_Options}">...</td>
+		   <td  th:text="${ap.Anonymization_Pattern}">...</td>
+      </tr>
+   
+   </th:block>
+      </table>
+</div>
+<button class="accordion">ImpactTable</button>
+<div class="panel">
+  <table border="1">
+         <tr>
+    <th>ImpactTableId</th>
+    <th>ImpactTableName</th>
+    
+  </tr>
+         <th:block th:each="it : ${allImpactTable}">
+      <tr>
+         <td th:text="${it.Impact_Table_Id}">...</td>
+         <td th:text="${it.Impact_Table_Name}">...</td>
+        
+      </tr>
+   
+   </th:block>
+      </table>
+
+</div>
+
+<button class="accordion">ImpactField</button> <div class="panel">
+  <table border="1">
+         <tr>
+    <th>Impact_Field_Id</th>
+    <th>Impact_Table_Id</th>
+	<th>Impact_Field_Name</th>
+	<th>Impact_Field_Type</th>
+    
+  </tr>
+         <th:block th:each="ift : ${allImpactFields}">
+      <tr>
+         <td th:text="${ift.Impact_Field_Id}">...</td>
+         <td th:text="${ift.Impact_Table_Id}">...</td>
+         <td th:text="${ift.Impact_Field_Name}">...</td>
+		  <td th:text="${ift.Impact_Field_Type}">...</td>
+      </tr>
+   
+   </th:block>
+      </table>
+
+</div>
+
+<button class="accordion">TriggerReference</button>
+<div class="panel">
+  <table border="1">
+         <tr>
+    <th>Trigger_Ref_Id</th>
+    <th>Abbreviation</th>
+	<th>Details</th>
+	<th>Field_Details</th>
+	<th>Condition</th>
+  </tr>
+         <th:block th:each="trmap : ${allTriggerReference}">
+      <tr>
+         <td th:text="${trmap.Trigger_Ref_Id}">...</td>
+         <td th:text="${trmap.Abbreviation}">...</td>
+         <td th:text="${trmap.Details}">...</td>
+		 <td th:text="${trmap.Field_Details}">...</td>
+		 <td th:text="${trmap.Condition}">...</td>
+	
+      </tr>
+   
+   </th:block>
+      </table>
+
+</div>
+<button class="accordion">Policy</button>
+<div class="panel">
+  <table border="1">
+         <tr>
+    <th>Policy_ID</th>
+    <th>Category_Id</th>
+	<th>Country_Id</th>
+	<th>Policy_Criterion</th>
+	<th>Status</th>
+	<th>Depersonalization_Condition</th>
+    
+  </tr>
+         <th:block th:each="policy : ${allPolicies}">
+      <tr>
+         <td th:text="${policy.Policy_ID}">...</td>
+         <td th:text="${policy.Category_Id}">...</td>
+         <td th:text="${policy.Country_Id}">...</td>
+		 <td th:text="${policy.Policy_Criterion}">...</td>
+		 <td th:text="${policy.Status}">...</td>
+		  <td th:text="${policy.Depersonalization_Condition}">...</td>
+      </tr>
+   
+   </th:block>
+      </table>
+
+</div>
+<button class="accordion">FieldAnonymizeMapping</button>
+<div class="panel">
+  <table border="1">
+         <tr>
+    <th>Mapping_Id</th>
+    <th>Impact_Field_Id</th>
+	<th>Category_Id</th>
+	<th>Country_Id</th>
+	<th>Policy_Criterion</th>
+	<th>Status</th>
+	<th>Anonymization_Id</th>
+    
+  </tr>
+         <th:block th:each="famap : ${allFieldAnonymizeMapping}">
+      <tr>
+         <td th:text="${famap.Mapping_Id}">...</td>
+         <td th:text="${famap.Impact_Field_Id}">...</td>
+         <td th:text="${famap.Category_Id}">...</td>
+		 <td th:text="${famap.Country_Id}">...</td>
+		 <td th:text="${famap.Policy_Criterion}">...</td>
+		  <td th:text="${famap.Status}">...</td>
+		   <td th:text="${famap.Anonymization_Id}">...</td>
+      </tr>
+   
+   </th:block>
+      </table>
+
+</div>
+				</div>				
+			</main>			
+		</div>
+	<script>
+	var acc = document.getElementsByClassName("accordion");
+	var i;
+
+	for (i = 0; i < acc.length; i++) {
+	  acc[i].addEventListener("click", function() {
+	    /* Toggle between adding and removing the "active" class,
+	    to highlight the button that controls the panel */
+	    this.classList.toggle("active");
+
+	    /* Toggle between hiding and showing the active panel */
+	    var panel = this.nextElementSibling;
+	    if (panel.style.display === "block") {
+	      panel.style.display = "none";
+	    } else {
+	      panel.style.display = "block";
+	    }
+	  });
+	}
+</script>	
+	</body>
+</html>
